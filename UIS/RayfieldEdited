@@ -1658,9 +1658,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				ParagraphButton.Content.Text = NewParagraphBSettings.Content
 			end
 
-			local ButtonsP = {}
-
-			function ButtonsP:CreateButtonP(Name)
+			function ParagraphButtonValue:CreateButtonP(Name)
 
 				local PButtonValue = {}
 
