@@ -1626,7 +1626,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		function Tab:CreateButtonParagraph(ParagraphBSettings)
 			local ParagraphButtonValue = {}
 
-			local ParagraphButton = Elements.Template.ParagraphButton:Clone()
+			local ParagraphButton = Elements.Template['Paragraph Button']:Clone()
 			ParagraphButton.Title.Text = ParagraphBSettings.Title
 			ParagraphButton.Content.Text = ParagraphBSettings.Content
 			ParagraphButton.Visible = true
