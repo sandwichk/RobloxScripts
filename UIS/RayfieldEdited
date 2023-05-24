@@ -140,6 +140,7 @@ local Camera = workspace.CurrentCamera
 local Main = Rayfield.Main
 local Topbar = Main.Topbar
 local Elements = Main.Elements
+Elements.ClipsDescendants = true
 local LoadingFrame = Main.LoadingFrame
 local TabList = Main.TabList
 
@@ -981,7 +982,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		if not Passthrough then
 			local AttemptsRemaining = math.random(2,6)
 			Rayfield.Enabled = false
-			local KeyUI = game:GetObjects("rbxassetid://11380036235")[1]
+			local KeyUI = game:GetObjects("rbxassetid://13531777186")[1]
 
 			if gethui then
 				KeyUI.Parent = gethui()
@@ -1631,10 +1632,13 @@ function RayfieldLibrary:CreateWindow(Settings)
 			ParagraphButton.Content.Text = ParagraphBSettings.Content
 			ParagraphButton.Visible = true
 			ParagraphButton.Parent = TabPage
+			ParagraphButton.Holder.Button.Visible = false
+			ParagraphButton.Content.TextYAlignment = 0
 
 			ParagraphButton.Content.Size = UDim2.new(0, 438, 0, ParagraphButton.Content.TextBounds.Y)
-			ParagraphButton.Content.Position = UDim2.new(1, -10, 0.575,0 )
-			ParagraphButton.Size = UDim2.new(1, -10, 0, ParagraphButton.Content.TextBounds.Y + 70)
+			ParagraphButton.Content.Position = UDim2.new(1, -10,0.375, 0)
+			ParagraphButton.Holder.Position = UDim2.new(0.034, 0,0.600, 0)
+			ParagraphButton.Size = UDim2.new(1, -10, 0, ParagraphButton.Content.TextBounds.Y + 80)
 
 			ParagraphButton.BackgroundTransparency = 1
 			ParagraphButton.UIStroke.Transparency = 1
@@ -1662,7 +1666,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 				local PButtonValue = {}
 
-				local Button = Elements.Template.Button:Clone()
+				local Button = Elements.Template["Paragraph Button"].Holder.Button:Clone()
 				Button.Name = ButtonSettings.Name
 				Button.Title.Text = ButtonSettings.Name
 				Button.Visible = true
@@ -1699,12 +1703,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 				Button.MouseEnter:Connect(function()
 					TweenService:Create(Button, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackgroundHover}):Play()
-					TweenService:Create(Button.ElementIndicator, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {TextTransparency = 0.7}):Play()
 				end)
 
 				Button.MouseLeave:Connect(function()
 					TweenService:Create(Button, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
-					TweenService:Create(Button.ElementIndicator, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {TextTransparency = 0.9}):Play()
 				end)
 
 				function PButtonValue:Set(NewButton)
@@ -1739,7 +1741,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Input.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 
 			Input.InputFrame.InputBox.PlaceholderText = InputSettings.PlaceholderText
-			Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 24, 0, 30)
+			Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 24, 0, 26)
 
 			Input.InputFrame.InputBox.FocusLost:Connect(function()
 
@@ -1775,6 +1777,53 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Input.InputFrame.InputBox:GetPropertyChangedSignal("Text"):Connect(function()
 				TweenService:Create(Input.InputFrame, TweenInfo.new(0.55, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 24, 0, 30)}):Play()
 			end)
+		end
+
+		function Tab:CreateSearch(SearchSettings)
+			local Search = Elements.Template["Search Input"]:Clone()
+			Search.Name = SearchSettings.Name
+			Search.Visible = true
+			Search.Parent = TabPage
+
+			Search.BackgroundTransparency = 1
+			Search.UIStroke.Transparency = 1
+
+			Search.InputFrame.BackgroundColor3 = SelectedTheme.InputBackground
+			Search.InputFrame.UIStroke.Color = SelectedTheme.InputStroke
+
+			TweenService:Create(Search, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
+			TweenService:Create(Search.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {Transparency = 0}):Play()	
+
+			Search.InputFrame.InputBox.PlaceholderText = SearchSettings.PlaceholderText
+
+
+			Search.InputFrame.InputBox.FocusLost:Connect(function()
+
+				local Success, Response = pcall(function()
+					SearchSettings.Callback(Search.InputFrame.InputBox.Text)
+				end)
+				if not Success then
+					TweenService:Create(Search, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
+					TweenService:Create(Search.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {Transparency = 1}):Play()
+					Search.InputFrame.InputBox.PlaceholderText = "Callback Error"
+					print("Rayfield | "..SearchSettings.PlaceholderText.." Callback Error " ..tostring(Response))
+					wait(0.5)
+					Search.InputFrame.InputBox.PlaceholderText = SearchSettings.PlaceholderText
+					TweenService:Create(Search, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
+					TweenService:Create(Search.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
+				end
+
+				SaveConfiguration()
+			end)
+
+			Search.MouseEnter:Connect(function()
+				TweenService:Create(Search, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackgroundHover}):Play()
+			end)
+
+			Search.MouseLeave:Connect(function()
+				TweenService:Create(Search, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
+			end)
+
 		end
 
 		-- Dropdown
