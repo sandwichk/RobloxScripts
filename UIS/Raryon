@@ -1524,8 +1524,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Section.Title.Text = SectionName
 			Section.Visible = true
 			Section.Parent = TabPage
-			Section.Size = UDim2.new(0.949, 0,0, 13)
-			Section.Positon = UDim2.new(0.024, 0, 0.233, 0)
 
 			Section.Title.TextTransparency = 1
 			TweenService:Create(Section.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
