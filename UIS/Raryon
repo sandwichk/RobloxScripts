@@ -1521,10 +1521,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 
 			local Section = Elements.Template.SectionTitle:Clone()
-			Section.Title.Text = SectionName
+			Section.Title.Text = "<b>"..SectionName.."<b>"
 			Section.Visible = true
 			Section.Parent = TabPage
-			Section.Title.Weight = Enum.FontWeight.Bold
 			Section.Size = UDim2.new(0.949, 0,0, 13)
 			Section.Positon = UDim2.new(0.024, 0,0.233, 0)
 
