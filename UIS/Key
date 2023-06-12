@@ -1,1 +1,135 @@
-local a={}function a:Init(b)a["1"]=Instance.new("ScreenGui",game:GetService("CoreGui"))a["1"]["Name"]=[[Key System]]a["1"]["ZIndexBehavior"]=Enum.ZIndexBehavior.Sibling;a["1"]["IgnoreGuiInset"]=true;a["2"]=Instance.new("Frame",a["1"])a["2"]["BackgroundColor3"]=Color3.fromRGB(6,6,6)a["2"]["AnchorPoint"]=Vector2.new(0.5,0.5)a["2"]["Size"]=UDim2.new(0,350,0,150)a["2"]["Position"]=UDim2.new(0.5,0,0.5,0)a["2"]["Name"]=[[Main]]a["3"]=Instance.new("UIStroke",a["2"])a["3"]["Color"]=Color3.fromRGB(56,56,56)a["4"]=Instance.new("TextLabel",a["2"])a["4"]["BackgroundColor3"]=Color3.fromRGB(255,255,255)a["4"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]],Enum.FontWeight.Medium,Enum.FontStyle.Normal)a["4"]["TextSize"]=25;a["4"]["TextColor3"]=Color3.fromRGB(236,236,236)a["4"]["Size"]=UDim2.new(0,350,0,20)a["4"]["Text"]=[[Key System]]a["4"]["Name"]=[[Title]]a["4"]["BackgroundTransparency"]=1;a["4"]["Position"]=UDim2.new(0,0,0.08500000089406967,0)a["5"]=Instance.new("UICorner",a["2"])a["5"]["CornerRadius"]=UDim.new(0,12)a["6"]=Instance.new("TextBox",a["2"])a["6"]["CursorPosition"]=-1;a["6"]["PlaceholderColor3"]=Color3.fromRGB(179,179,179)a["6"]["TextSize"]=18;a["6"]["BackgroundColor3"]=Color3.fromRGB(16,16,16)a["6"]["TextColor3"]=Color3.fromRGB(201,201,201)a["6"]["FontFace"]=Font.new([[rbxasset://fonts/families/SourceSansPro.json]],Enum.FontWeight.Regular,Enum.FontStyle.Normal)a["6"]["PlaceholderText"]=[[Key Here]]a["6"]["Size"]=UDim2.new(0,250,0,25)a["6"]["ClipsDescendants"]=true;a["6"]["BorderColor3"]=Color3.fromRGB(28,43,54)a["6"]["Text"]=[[]]a["6"]["Position"]=UDim2.new(0.1428571343421936,0,0.36000001430511475,0)a["6"]["Name"]=[[Input]]a["7"]=Instance.new("UICorner",a["6"])a["7"]["CornerRadius"]=UDim.new(0,4)a["8"]=Instance.new("Frame",a["2"])a["8"]["BackgroundColor3"]=Color3.fromRGB(36,36,36)a["8"]["Size"]=UDim2.new(0,120,0,30)a["8"]["Position"]=UDim2.new(0.1428571492433548,0,0.5799999833106995,0)a["8"]["Name"]=[[Link]]a["9"]=Instance.new("UICorner",a["8"])a["9"]["CornerRadius"]=UDim.new(0,4)a["a"]=Instance.new("TextButton",a["8"])a["a"]["BackgroundColor3"]=Color3.fromRGB(255,255,255)a["a"]["TextSize"]=14;a["a"]["FontFace"]=Font.new([[rbxasset://fonts/families/SourceSansPro.json]],Enum.FontWeight.Regular,Enum.FontStyle.Normal)a["a"]["TextColor3"]=Color3.fromRGB(0,0,0)a["a"]["Size"]=UDim2.new(1,0,1,0)a["a"]["Name"]=[[Interact]]a["a"]["Text"]=[[]]a["a"]["BackgroundTransparency"]=1;a["b"]=Instance.new("TextLabel",a["8"])a["b"]["BackgroundColor3"]=Color3.fromRGB(255,255,255)a["b"]["FontFace"]=Font.new([[rbxasset://fonts/families/Roboto.json]],Enum.FontWeight.Regular,Enum.FontStyle.Normal)a["b"]["TextSize"]=15;a["b"]["TextColor3"]=Color3.fromRGB(216,216,216)a["b"]["Size"]=UDim2.new(0,120,0,30)a["b"]["Text"]=[[Copy Key Link]]a["b"]["Name"]=[[Title]]a["b"]["BackgroundTransparency"]=1;a["c"]=Instance.new("UIStroke",a["8"])a["c"]["Color"]=Color3.fromRGB(56,56,56)a["d"]=Instance.new("Frame",a["2"])a["d"]["BackgroundColor3"]=Color3.fromRGB(36,36,36)a["d"]["Size"]=UDim2.new(0,120,0,30)a["d"]["Position"]=UDim2.new(0.5142857432365417,0,0.5799999833106995,0)a["d"]["Name"]=[[Enter]]a["e"]=Instance.new("UICorner",a["d"])a["e"]["CornerRadius"]=UDim.new(0,4)a["f"]=Instance.new("TextButton",a["d"])a["f"]["BackgroundColor3"]=Color3.fromRGB(255,255,255)a["f"]["TextSize"]=14;a["f"]["FontFace"]=Font.new([[rbxasset://fonts/families/SourceSansPro.json]],Enum.FontWeight.Regular,Enum.FontStyle.Normal)a["f"]["TextColor3"]=Color3.fromRGB(0,0,0)a["f"]["Size"]=UDim2.new(1,0,1,0)a["f"]["Name"]=[[Interact]]a["f"]["Text"]=[[]]a["f"]["BackgroundTransparency"]=1;a["10"]=Instance.new("UIStroke",a["d"])a["10"]["Color"]=Color3.fromRGB(56,56,56)a["11"]=Instance.new("TextLabel",a["d"])a["11"]["BackgroundColor3"]=Color3.fromRGB(255,255,255)a["11"]["FontFace"]=Font.new([[rbxasset://fonts/families/Roboto.json]],Enum.FontWeight.Regular,Enum.FontStyle.Normal)a["11"]["TextSize"]=15;a["11"]["TextColor3"]=Color3.fromRGB(216,216,216)a["11"]["Size"]=UDim2.new(0,120,0,30)a["11"]["Text"]=[[Enter]]a["11"]["Name"]=[[Title]]a["11"]["BackgroundTransparency"]=1;local c=a["f"]local d=a["6"]local e=a["a"]e.MouseButton1Click:Connect(function()setclipboard(b.Link)end)c.MouseButton1Click:Connect(function()if b.Key==d.Text then a["1"]:Destroy()loadstring(b.Script)()end end)end;return a
+-- Instances: 17 | Scripts: 0 | Modules: 0
+local Key = {};
+
+function Key:Init( Settings )
+	
+	Key["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
+	Key["1"]["Name"] = [[Key System]];
+	Key["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+	Key["1"]["IgnoreGuiInset"] = true
+
+	Key["2"] = Instance.new("Frame", Key["1"]);
+	Key["2"]["BackgroundColor3"] = Color3.fromRGB(6, 6, 6);
+	Key["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+	Key["2"]["Size"] = UDim2.new(0, 350, 0, 150);
+	Key["2"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+	Key["2"]["Name"] = [[Main]];
+
+	Key["3"] = Instance.new("UIStroke", Key["2"]);
+	Key["3"]["Color"] = Color3.fromRGB(56, 56, 56);
+
+	Key["4"] = Instance.new("TextLabel", Key["2"]);
+	Key["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Key["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+	Key["4"]["TextSize"] = 25;
+	Key["4"]["TextColor3"] = Color3.fromRGB(236, 236, 236);
+	Key["4"]["Size"] = UDim2.new(0, 350, 0, 20);
+	Key["4"]["Text"] = [[Key System]];
+	Key["4"]["Name"] = [[Title]];
+	Key["4"]["BackgroundTransparency"] = 1;
+	Key["4"]["Position"] = UDim2.new(0, 0, 0.08500000089406967, 0);
+
+	Key["5"] = Instance.new("UICorner", Key["2"]);
+	Key["5"]["CornerRadius"] = UDim.new(0, 12);
+
+	Key["6"] = Instance.new("TextBox", Key["2"]);
+	Key["6"]["CursorPosition"] = -1;
+	Key["6"]["PlaceholderColor3"] = Color3.fromRGB(179, 179, 179);
+	Key["6"]["TextSize"] = 18;
+	Key["6"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+	Key["6"]["TextColor3"] = Color3.fromRGB(201, 201, 201);
+	Key["6"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+	Key["6"]["PlaceholderText"] = [[Key Here]];
+	Key["6"]["Size"] = UDim2.new(0, 250, 0, 25);
+	Key["6"]["ClipsDescendants"] = true;
+	Key["6"]["BorderColor3"] = Color3.fromRGB(28, 43, 54);
+	Key["6"]["Text"] = [[]];
+	Key["6"]["Position"] = UDim2.new(0.1428571343421936, 0, 0.36000001430511475, 0);
+	Key["6"]["Name"] = [[Input]];
+
+	Key["7"] = Instance.new("UICorner", Key["6"]);
+	Key["7"]["CornerRadius"] = UDim.new(0, 4);
+
+	Key["8"] = Instance.new("Frame", Key["2"]);
+	Key["8"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+	Key["8"]["Size"] = UDim2.new(0, 120, 0, 30);
+	Key["8"]["Position"] = UDim2.new(0.1428571492433548, 0, 0.5799999833106995, 0);
+	Key["8"]["Name"] = [[Link]];
+
+	Key["9"] = Instance.new("UICorner", Key["8"]);
+	Key["9"]["CornerRadius"] = UDim.new(0, 4);
+
+	Key["a"] = Instance.new("TextButton", Key["8"]);
+	Key["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Key["a"]["TextSize"] = 14;
+	Key["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+	Key["a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+	Key["a"]["Size"] = UDim2.new(1, 0, 1, 0);
+	Key["a"]["Name"] = [[Interact]];
+	Key["a"]["Text"] = [[]];
+	Key["a"]["BackgroundTransparency"] = 1;
+
+	Key["b"] = Instance.new("TextLabel", Key["8"]);
+	Key["b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Key["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/Roboto.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+	Key["b"]["TextSize"] = 15;
+	Key["b"]["TextColor3"] = Color3.fromRGB(216, 216, 216);
+	Key["b"]["Size"] = UDim2.new(0, 120, 0, 30);
+	Key["b"]["Text"] = [[Copy Key Link]];
+	Key["b"]["Name"] = [[Title]];
+	Key["b"]["BackgroundTransparency"] = 1;
+
+	Key["c"] = Instance.new("UIStroke", Key["8"]);
+	Key["c"]["Color"] = Color3.fromRGB(56, 56, 56);
+
+	Key["d"] = Instance.new("Frame", Key["2"]);
+	Key["d"]["BackgroundColor3"] = Color3.fromRGB(36, 36, 36);
+	Key["d"]["Size"] = UDim2.new(0, 120, 0, 30);
+	Key["d"]["Position"] = UDim2.new(0.5142857432365417, 0, 0.5799999833106995, 0);
+	Key["d"]["Name"] = [[Enter]];
+
+	Key["e"] = Instance.new("UICorner", Key["d"]);
+	Key["e"]["CornerRadius"] = UDim.new(0, 4);
+
+	Key["f"] = Instance.new("TextButton", Key["d"]);
+	Key["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Key["f"]["TextSize"] = 14;
+	Key["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+	Key["f"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+	Key["f"]["Size"] = UDim2.new(1, 0, 1, 0);
+	Key["f"]["Name"] = [[Interact]];
+	Key["f"]["Text"] = [[]];
+	Key["f"]["BackgroundTransparency"] = 1;
+
+	Key["10"] = Instance.new("UIStroke", Key["d"]);
+	Key["10"]["Color"] = Color3.fromRGB(56, 56, 56);
+
+	Key["11"] = Instance.new("TextLabel", Key["d"]);
+	Key["11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Key["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/Roboto.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+	Key["11"]["TextSize"] = 15;
+	Key["11"]["TextColor3"] = Color3.fromRGB(216, 216, 216);
+	Key["11"]["Size"] = UDim2.new(0, 120, 0, 30);
+	Key["11"]["Text"] = [[Enter]];
+	Key["11"]["Name"] = [[Title]];
+	Key["11"]["BackgroundTransparency"] = 1;
+	
+	local Enter = Key["f"]
+	local KeyBox = Key["6"]
+	local Link = Key["a"]
+	
+	Link.MouseButton1Click:Connect(function()
+		setclipboard(Settings.Link)
+	end)
+	
+	Enter.MouseButton1Click:Connect(function()
+		if Settings.Key == KeyBox.Text then
+			Key["1"]:Destroy()
+			loadstring(Settings.Script)()
+		end
+	end)
+	
+	
+end
+
+return Key
