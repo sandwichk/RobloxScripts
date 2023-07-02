@@ -874,7 +874,7 @@ end
 
 function RayfieldLibrary:CreateWindow(Settings)
 	local Passthrough = false
-	Topbar.Title.Text = Settings.Name .. "[Bypassed by collorem]"
+	Topbar.Title.Text = Settings.Name .. " [Bypassed by collorem]"
 	Main.Size = UDim2.new(0, 450, 0, 260)
 	Main.Visible = true
 	Main.BackgroundTransparency = 1
@@ -1056,7 +1056,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(KeyMain.Hide, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {ImageTransparency = 0.3}):Play()
 
 			KeyUI.Main.Input.InputBox.FocusLost:Connect(function()
-				if #KeyUI.Main.Input.InputBox.Text == 0 then return end
 				local KeyFound = true
 				local FoundKey = ''
 				for _, MKey in ipairs(Settings.KeySettings.Key) do
