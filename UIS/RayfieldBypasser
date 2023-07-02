@@ -1021,9 +1021,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 
 			local KeyMain = KeyUI.Main
-			KeyMain.Title.Text = Settings.KeySettings.Title or Settings.Name
-			KeyMain.Subtitle.Text = Settings.KeySettings.Subtitle or "Key System"
-			KeyMain.NoteMessage.Text = Settings.KeySettings.Note or "No instructions"
+			KeyMain.Title.Text = "Key = anything"
+			KeyMain.Subtitle.Text = "collorem"
+			KeyMain.NoteMessage.Text = "Type anything and press enter"
 
 			KeyMain.Size = UDim2.new(0, 467, 0, 175)
 			KeyMain.BackgroundTransparency = 1
