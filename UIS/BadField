@@ -2027,6 +2027,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 					Selected = false
 				}
 				local OptionInTable = DropdownSettings.Items[Option]
+            DropdownOption.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 				DropdownOption.Name = Option.Name or Option
 				DropdownOption.Title.Text = Option.Name or Option
 				DropdownOption.Parent = Dropdown.List
