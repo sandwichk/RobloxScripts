@@ -7,6 +7,7 @@ Original by Sirius
 
 -------------------------------
 Arrays  | Designing + Programming + New Features
+collorem | Designing + programming
 
 ]]
 
@@ -51,11 +52,11 @@ local ArrayFieldLibrary = {
 
 			ToggleBackground = Color3.fromRGB(18, 11, 30),
 			ToggleEnabled = Color3.fromRGB(96, 41, 159),
-			ToggleDisabled = Color3.fromRGB(70,70,70),
+			ToggleDisabled = Color3.fromRGB(175,175,175),
 			ToggleEnabledStroke = Color3.fromRGB(132, 58, 223),
-			ToggleDisabledStroke = Color3.fromRGB(55,55,55),
+			ToggleDisabledStroke = Color3.fromRGB(125,125,125),
 			ToggleEnabledOuterStroke = Color3.fromRGB(132, 58, 223),
-			ToggleDisabledOuterStroke = Color3.fromRGB(55,55,55),
+			ToggleDisabledOuterStroke = Color3.fromRGB(75,75,75),
 
 			InputBackground = Color3.fromRGB(20, 20, 20),
 			InputStroke = Color3.fromRGB(15, 15, 15),
@@ -2897,6 +2898,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 			Slider.Main.BackgroundColor3 = SelectedTheme.SliderBackground
 			Slider.Main.UIStroke.Color = SelectedTheme.SliderStroke
 			Slider.Main.Progress.BackgroundColor3 = SelectedTheme.SliderProgress
+         Slider.Main.Progress.UIStroke.Color = SelectedTheme.SliderStroke
 
 			TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {BackgroundTransparency = 0}):Play()
 			TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
