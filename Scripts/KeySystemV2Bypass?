@@ -1,3 +1,4 @@
+print("On Fire")
 local KeySystemUI = { Finished = true }
 
 local function Validate(Values, options)
