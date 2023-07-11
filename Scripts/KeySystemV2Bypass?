@@ -1,3 +1,14 @@
 local KeySystemUI = { Finished = true }
 
+function KeySystemUI.New(settings) 
+    settings = Validate({
+        ApplicationName = "",
+        Name = "",
+        Info = "",
+        DiscordInvite = ""
+	}, settings or {})
+
+    print(settings.ApplicationName, settings.Name, settings.Info, settings.DiscordInvite)
+end
+
 return KeySystemUI
