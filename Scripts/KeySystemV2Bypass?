@@ -1,5 +1,15 @@
 local KeySystemUI = { Finished = true }
 
+local function Validate(Values, options)
+    for i,v in pairs(Values) do
+        if options[i] == nil then
+            options[i] = v
+        end
+    end
+
+    return options
+end
+
 function KeySystemUI.New(settings) 
     settings = Validate({
         ApplicationName = "",
