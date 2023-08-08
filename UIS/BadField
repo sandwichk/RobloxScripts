@@ -1723,7 +1723,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 		end
 
 		-- Paragraph
-		function Tab:CreateParagraph(ParagraphSettings, SectionParent)
+		function Tab:CreateParagraph(ParagraphSettings)
 			local ParagraphValue = {}
 
 			local Paragraph = Elements.Template.Paragraph:Clone()
@@ -1737,7 +1737,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 				element = Paragraph
 			}
 
-			if SectionParent then
+			if ParagraphSettings.SectionParent then
 				Paragraph.Parent = SectionParent.Holder
 			else
 				Paragraph.Parent = TabPage
