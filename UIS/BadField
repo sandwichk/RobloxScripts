@@ -1,5 +1,5 @@
 --[[
-Version 2
+Version 3
 ArrayField Interface Suite
 by Meta
 
@@ -2145,7 +2145,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 
 			if Settings.ConfigurationSaving then
 				if Settings.ConfigurationSaving.Enabled and DropdownSettings.Flag then
-					RayfieldLibrary.Flags[DropdownSettings.Flag] = DropdownSettings
+					ArrayfieldLibrary.Flags[DropdownSettings.Flag] = DropdownSettings
 				end
 			end
 
