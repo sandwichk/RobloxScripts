@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded()
 local HttpService = game:GetService("HttpService")
 local Request_ = (syn and syn.request) or (http and http.request) or http_request
 local Crack = {}
-print([[Collorem :D]]
+print([[Collorem :D]])
 
 function Crack:load(Raw)
 
