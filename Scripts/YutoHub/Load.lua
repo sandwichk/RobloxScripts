@@ -1,5 +1,6 @@
 repeat wait() until game:IsLoaded()
 local HttpService = game:GetService("HttpService")
+local StarterGui = game:GetService("StarterGui")
 local Request_ = (syn and syn.request) or (http and http.request) or http_request
 local Crack = {}
 print([[Collorem :D]])
@@ -24,7 +25,14 @@ function Crack:load(Raw)
             print([[Loading Crack]])
             loadstring(game:HttpGet("https://raw.githubusercontent.com/sandwichk/RobloxScripts/main/Scripts/YutoHub/Crack.lua"))()
     end)
-    if Sucess then loadstring(game:HttpGet(Raw))() print([[Successfully Loaded Crack, Press "Check Key" to load script.]])
+    if Sucess then loadstring(game:HttpGet(Raw))() 
+        print([[Successfully Loaded Crack, Press "Check Key" to load script.]])
+        StarterGui:SetCore("SendNotification", {
+            Title = [[Successfully Loaded Crack]];
+            Text = [[Press "Check Key" to load script.]];
+            Duration = 10;
+        })
+    end
 end
 
 return Crack
