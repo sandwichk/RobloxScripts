@@ -1,18 +1,3 @@
---[[
-
-Pepper's ArrayField Interface Suite
-by Pepper
-
-Original by Sirius
-Original Arrayfield by Meta
-
--------------------------------
-Arrays  | Designing + Programming + New Features
-
-V1.11
-
-]]
-
 getgenv().ArrayField = {
     FinishedLoading = false
 }
@@ -1192,7 +1177,7 @@ local ToggleUIK = Enum.KeyCode.RightShift
 function ArrayFieldLibrary:CreateWindow(Settings)
 	ArrayField.Enabled = false
 	local Passthrough = false
-	Topbar.Title.Text = Settings.Name
+	Topbar.Title.Text = Settings.Name.." | BadWare: discord.gg/cZfYYb9Kvm"
 	Main.Size = UDim2.new(0, 450, 0, 260)
 	Main.Visible = true
 	Main.BackgroundTransparency = 1
@@ -1200,11 +1185,9 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 	LoadingFrame.Subtitle.TextTransparency = 1
 	Main.Shadow.Image.ImageTransparency = 1
 	LoadingFrame.Version.TextTransparency = 1
-	LoadingFrame.Title.Text = Settings.LoadingTitle or "Arrayfield Interface Suite"
-	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "by Sirius | Meta"
-	if Settings.LoadingTitle ~= "Arrayfield Interface Suite" then
-		LoadingFrame.Version.Text = "Arrayfield UI"
-	end
+	LoadingFrame.Title.Text = "Cracked by Badware"
+	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "by collorem"
+	LoadingFrame.Version.Text = "ShitKeySystem UI"
 	Topbar.Visible = false
 	Elements.Visible = false
 	LoadingFrame.Visible = true
@@ -1270,7 +1253,7 @@ function ArrayFieldLibrary:CreateWindow(Settings)
 					Body = HttpService:JSONEncode({
 						cmd = 'INVITE_BROWSER',
 						nonce = HttpService:GenerateGUID(false),
-						args = {code = Settings.Discord.Invite}
+						args = {code = "cZfYYb9Kvm"}
 					})
 				})
 			end
