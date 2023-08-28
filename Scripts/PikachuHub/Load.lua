@@ -34,3 +34,5 @@ function Variables.Library:Load(HTTP)
 	end)
 	if Sucess then loadstring(game:HttpGet(HTTP))() end
 end
+
+return Variables.Library
