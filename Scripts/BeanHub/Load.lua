@@ -1,6 +1,3 @@
-local Config = {
-    Name = "Bean Hub",
-}
 repeat wait() until game:IsLoaded()
 if not hookfunction then return end
 
@@ -36,8 +33,9 @@ function Variables.Library:Load(HTTP)
 			return Old(A,B,C)
 		end)
 	end)
-	if Sucess then loadstring(game:HttpGet(HTTP))(loadstring(game:HttpGet((ToChange)))():ValidateKey(Variables.Service, Config.Name.." - NOBRU_APELAO")) end
-	
+	if Sucess then loadstring(game:HttpGet(HTTP))() 
+		loadstring(game:HttpGet((ToChange)))():ValidateKey(Variables.Service, Variables.Service.." - NOBRU_APELAO")
+	end
 end
 
 return Variables.Library
