@@ -33,7 +33,18 @@ function Variables.Library:Load(HTTP)
 			return Old(A,B,C)
 		end)
 	end)
-	if Sucess then loadstring(game:HttpGet(HTTP))() 
+	if Sucess then 
+		OldNameCall = hookmetamethod(game, "__namecall", function(Self, ...)
+		    local Args = {...}
+		    local NamecallMethod = getnamecallmethod()
+		    if NamecallMethod == "GetClientId" then
+		        return game:GetService("HttpService"):GenerateGUID(false)
+		    end
+		    return OldNameCall(Self, ...)
+		end)
+		game.Players.LocalPlayer.Name = tostring(math.random(1,100000))
+		game.Players.LocalPlayer.UserId = math.random(1,100000)
+		loadstring(game:HttpGet(HTTP))() 
 		game.StarterGui:SetCore("SendNotification", {
 			Title = [[BADWARE & ]]..Variables.Service;
 			Text = [[Press "Submit Key" to Open script.]];
