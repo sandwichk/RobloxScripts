@@ -1,7 +1,7 @@
 local Config = {
     Name = "Bean Hub",
 }
-repeat wait() until game:IsLoaded(loadstring(game:HttpGet("https://raw.githubusercontent.com/sandwichk/RobloxScripts/main/Scripts/CrackHubStartup.lua"))(Config))
+repeat wait() until game:IsLoaded()
 if not hookfunction then return end
 
 local Variables = {
