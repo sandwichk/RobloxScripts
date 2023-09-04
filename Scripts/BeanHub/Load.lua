@@ -9,6 +9,7 @@ local Variables = {
 	Request = (syn and syn.request) or (http and http.request) or http_request,
 	ToChange = "https://pandadevelopment.net/service_api/PandaBetaLib.lua",
 	Crack = "https://pastebin.com/raw/QUwEYGMS",
+	Service = "beanhub",
 	Library = {}
 }
 
@@ -35,7 +36,8 @@ function Variables.Library:Load(HTTP)
 			return Old(A,B,C)
 		end)
 	end)
-	if Sucess then loadstring(game:HttpGet(HTTP))() end
+	if Sucess then loadstring(game:HttpGet(HTTP))(loadstring(game:HttpGet((ToChange)))():ValidateKey(Variables.Service, Config.Name.." - NOBRU_APELAO")) end
+	
 end
 
 return Variables.Library
