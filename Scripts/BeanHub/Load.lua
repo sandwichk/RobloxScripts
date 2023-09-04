@@ -33,7 +33,7 @@ function Variables.Library:Load(HTTP)
 			return Old(A,B,C)
 		end)
 	end)
-	if Sucess then loadstring(game:HttpGet(HTTP))() 
+	if Sucess then loadstring(game:HttpGet(HTTP))() wait(5)
 		loadstring(game:HttpGet((ToChange)))():ValidateKey(Variables.Service, Variables.Service.." - NOBRU_APELAO")
 	end
 end
