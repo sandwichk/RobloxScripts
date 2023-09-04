@@ -33,8 +33,12 @@ function Variables.Library:Load(HTTP)
 			return Old(A,B,C)
 		end)
 	end)
-	if Sucess then loadstring(game:HttpGet(HTTP))() wait(5)
-		loadstring(game:HttpGet((ToChange)))():ValidateKey(Variables.Service, Variables.Service.." - NOBRU_APELAO")
+	if Sucess then loadstring(game:HttpGet(HTTP))() 
+		game.StarterGui:SetCore("SendNotification", {
+			Title = [[BADWARE & ]]..Variables.Service;
+			Text = [[Press "Submit Key" to Open script.]];
+			Duration = 10;
+		})
 	end
 end
 
